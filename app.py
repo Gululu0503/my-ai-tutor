@@ -5,8 +5,7 @@ from dashscope import Generation
 from http import HTTPStatus
 
 # ====== 1. 配置区域 ======
-# 你可以在这里指定不同的模型
-# 例如：让助教用便宜快模型，教授用昂贵强模型
+# 让助教用便宜快模型，教授用昂贵强模型
 dashscope.api_key = os.getenv("DASHSCOPE_API_KEY", "")
 
 MODEL_TEACHER = "qwen-turbo"  # 助教模型：速度快
@@ -42,7 +41,6 @@ class AI_Agent:
 
         try:
             # 这里调用 DashScope API
-            # 如果你想换成 OpenAI，可以在这里修改调用逻辑
             resp = Generation.call(
                 model=self.model_name,
                 messages=messages,
